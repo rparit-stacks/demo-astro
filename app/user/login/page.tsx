@@ -61,6 +61,11 @@ export default function UserLoginPage() {
         setSuccess("Login successful! Redirecting...")
         console.log('✅ Login successful, redirecting to home...')
         
+        // Dispatch login event for location selector
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new Event("userLoggedIn"))
+        }
+        
         setTimeout(() => {
           router.push("/home")
         }, 1000)
@@ -103,6 +108,12 @@ export default function UserLoginPage() {
 
         if (result.success) {
           setSuccess("Login successful! Redirecting...")
+          
+          // Dispatch login event for location selector
+          if (typeof window !== "undefined") {
+            window.dispatchEvent(new Event("userLoggedIn"))
+          }
+          
           setTimeout(() => {
             router.push('/home')
           }, 1000)

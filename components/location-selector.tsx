@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo, useCallback } from "react"
+import { usePathname } from "next/navigation"
 import { Search, MapPin, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -22,32 +23,25 @@ interface LocationData {
 }
 
 export function LocationSelector() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedState, setSelectedState] = useState<string>("")
   const [selectedCity, setSelectedCity] = useState<string>("")
   const [searchQuery, setSearchQuery] = useState("")
   const [location, setLocation] = useState<string>("")
+  const [isChecking, setIsChecking] = useState(true)
 
-  useEffect(() => {
-    // Check if location is already stored
-    if (typeof window !== "undefined") {
-      const storedLocation = localStorage.getItem("user_location")
-      if (storedLocation) {
-        setLocation(storedLocation)
-      } else {
-        // Show modal if no location is stored
-        setIsOpen(true)
-      }
-    }
-  }, [])
+  // Memoize location data processing
+  const data = useMemo(() => locationData as LocationData, [])
+  
+  const allStates = useMemo(() => {
+    return [
+      ...Object.keys(data.India.states),
+      ...Object.keys(data.India.union_territories),
+    ].sort()
+  }, [data])
 
-  const data = locationData as LocationData
-  const allStates = [
-    ...Object.keys(data.India.states),
-    ...Object.keys(data.India.union_territories),
-  ].sort()
-
-  const getCitiesForState = (state: string): string[] => {
+  const getCitiesForState = useCallback((state: string): string[] => {
     if (data.India.states[state]) {
       const stateData = data.India.states[state]
       const cities: string[] = []
@@ -63,24 +57,113 @@ export function LocationSelector() {
       return cities.sort()
     }
     return []
-  }
+  }, [data])
 
-  const filteredStates = allStates.filter((state) =>
-    state.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  // Function to check if we should show the popup
+  const shouldShowPopup = useCallback(() => {
+    // Only show on home page
+    if (pathname !== "/home") {
+      return false
+    }
+    
+    // Check if location is already stored
+    const storedLocation = localStorage.getItem("user_location")
+    if (storedLocation) {
+      setLocation(storedLocation)
+      return false
+    }
+    
+    // Check if user is logged in
+    const userData = localStorage.getItem("astro_user")
+    if (!userData) {
+      return false
+    }
+    
+    return true
+  }, [pathname])
 
-  const cities = selectedState ? getCitiesForState(selectedState) : []
-  const filteredCities = cities.filter((city) =>
-    city.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Initial check - only on home page
+      setIsChecking(true)
+      const checkLocation = () => {
+        if (shouldShowPopup()) {
+          // User is on home page, logged in, and no location - show popup after delay
+          setTimeout(() => {
+            setIsOpen(true)
+          }, 800)
+        } else {
+          const storedLocation = localStorage.getItem("user_location")
+          if (storedLocation) {
+            setLocation(storedLocation)
+          }
+        }
+        setIsChecking(false)
+      }
+      
+      // Initial check
+      checkLocation()
+      
+      // Listen for login events - only show if on home page
+      const handleLogin = () => {
+        // Wait a bit for navigation to home page
+        setTimeout(() => {
+          if (shouldShowPopup()) {
+            setIsOpen(true)
+          }
+        }, 1000)
+      }
+      
+      // Listen for custom login event
+      window.addEventListener("userLoggedIn", handleLogin)
+      
+      // Also listen for route changes to home page
+      const handleRouteChange = () => {
+        if (pathname === "/home") {
+          setTimeout(() => {
+            if (shouldShowPopup()) {
+              setIsOpen(true)
+            }
+          }, 500)
+        } else {
+          // Close popup if not on home page
+          setIsOpen(false)
+        }
+      }
+      
+      // Check when pathname changes
+      handleRouteChange()
+      
+      return () => {
+        window.removeEventListener("userLoggedIn", handleLogin)
+      }
+    }
+  }, [pathname, shouldShowPopup])
 
-  const handleStateSelect = (state: string) => {
+  // Memoize filtered states and cities to prevent unnecessary recalculations
+  const filteredStates = useMemo(() => {
+    if (!searchQuery) return allStates
+    const query = searchQuery.toLowerCase()
+    return allStates.filter((state) => state.toLowerCase().includes(query))
+  }, [allStates, searchQuery])
+
+  const cities = useMemo(() => {
+    return selectedState ? getCitiesForState(selectedState) : []
+  }, [selectedState, getCitiesForState])
+
+  const filteredCities = useMemo(() => {
+    if (!searchQuery) return cities
+    const query = searchQuery.toLowerCase()
+    return cities.filter((city) => city.toLowerCase().includes(query))
+  }, [cities, searchQuery])
+
+  const handleStateSelect = useCallback((state: string) => {
     setSelectedState(state)
     setSelectedCity("")
     setSearchQuery("")
-  }
+  }, [])
 
-  const handleCitySelect = (city: string) => {
+  const handleCitySelect = useCallback((city: string) => {
     setSelectedCity(city)
     const fullLocation = `${city}, ${selectedState}`
     setLocation(fullLocation)
@@ -96,26 +179,29 @@ export function LocationSelector() {
     }
     
     setIsOpen(false)
-  }
+  }, [selectedState])
 
-  const handleSearch = (query: string) => {
+  const handleSearch = useCallback((query: string) => {
     setSearchQuery(query)
-    if (!selectedState) {
-      // If searching and no state selected, search in states
-      return
-    }
-    // If state selected, search in cities
-  }
+  }, [])
 
   return (
     <>
-      <Dialog open={isOpen} onOpenChange={(open) => {
+      <Dialog open={isOpen && !isChecking && pathname === "/home"} onOpenChange={(open) => {
         setIsOpen(open)
-        // If dialog is closed and no location is set, keep it open
-        if (!open && !location && typeof window !== "undefined") {
+        // If dialog is closed and no location is set, keep it open (only on home page)
+        if (!open && !location && pathname === "/home" && typeof window !== "undefined") {
           const stored = localStorage.getItem("user_location")
           if (!stored) {
-            setTimeout(() => setIsOpen(true), 100)
+            // Check if user is logged in and on home page before forcing it open
+            const userData = localStorage.getItem("astro_user")
+            if (userData) {
+              setTimeout(() => {
+                if (pathname === "/home") {
+                  setIsOpen(true)
+                }
+              }, 100)
+            }
           }
         }
       }}>
