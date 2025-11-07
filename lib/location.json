@@ -1,0 +1,485 @@
+{
+    "India": {
+      "union_territories": {
+        "Andaman and Nicobar Islands": {
+          "capital": "Sri Vijaya Puram (formerly Port Blair)"
+        },
+        "Chandigarh": {
+          "capital": "Chandigarh"
+        },
+        "Dadra and Nagar Haveli and Daman and Diu": {
+          "capitals": ["Daman", "Diu", "Silvassa"]
+        },
+        "Delhi": {
+          "capital": "New Delhi"
+        },
+        "Ladakh": {
+          "capitals": ["Leh", "Kargil"]
+        },
+        "Puducherry": {
+          "capitals": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
+        }
+      },
+      "states": {
+        "Andhra Pradesh": {
+          "capital": "Amaravati",
+          "major_cities": [
+            "Adoni",
+            "Amaravati",
+            "Anantapur",
+            "Chandragiri",
+            "Chittoor",
+            "Dowlaiswaram",
+            "Eluru",
+            "Guntur",
+            "Kadapa",
+            "Kakinada",
+            "Kurnool",
+            "Machilipatnam",
+            "Nagarjunakoṇḍa",
+            "Rajahmundry",
+            "Srikakulam",
+            "Tirupati",
+            "Vijayawada",
+            "Visakhapatnam",
+            "Vizianagaram",
+            "Yemmiganur"
+          ]
+        },
+        "Arunachal Pradesh": {
+          "capital": "Itanagar"
+        },
+        "Assam": {
+          "capital": "Dispur",
+          "major_cities": [
+            "Dhuburi",
+            "Dibrugarh",
+            "Guwahati",
+            "Jorhat",
+            "Nagaon",
+            "Sivasagar",
+            "Silchar",
+            "Tezpur",
+            "Tinsukia"
+          ]
+        },
+        "Bihar": {
+          "capital": "Patna",
+          "major_cities": [
+            "Ara",
+            "Barauni",
+            "Begusarai",
+            "Bettiah",
+            "Bhagalpur",
+            "Bihar Sharif",
+            "Bodh Gaya",
+            "Buxar",
+            "Chapra",
+            "Darbhanga",
+            "Dehri",
+            "Dinapur Nizamat",
+            "Gaya",
+            "Hajipur",
+            "Jamalpur",
+            "Katihar",
+            "Madhubani",
+            "Motihari",
+            "Munger",
+            "Muzaffarpur",
+            "Purnia",
+            "Pusa",
+            "Saharsa",
+            "Samastipur",
+            "Sasaram",
+            "Sitamarhi",
+            "Siwan"
+          ]
+        },
+        "Chhattisgarh": {
+          "capital": "Raipur",
+          "major_cities": [
+            "Ambikapur",
+            "Bhilai",
+            "Bilaspur",
+            "Dhamtari",
+            "Durg",
+            "Jagdalpur",
+            "Rajnandgaon"
+          ]
+        },
+        "Goa": {
+          "capital": "Panaji",
+          "major_cities": ["Madgaon"]
+        },
+        "Gujarat": {
+          "capital": "Gandhinagar",
+          "major_cities": [
+            "Ahmadabad",
+            "Amreli",
+            "Bharuch",
+            "Bhavnagar",
+            "Bhuj",
+            "Dwarka",
+            "Godhra",
+            "Jamnagar",
+            "Junagadh",
+            "Kandla",
+            "Khambhat",
+            "Kheda",
+            "Mahesana",
+            "Morbi",
+            "Nadiad",
+            "Navsari",
+            "Okha",
+            "Palanpur",
+            "Patan",
+            "Porbandar",
+            "Rajkot",
+            "Surat",
+            "Surendranagar",
+            "Valsad",
+            "Veraval"
+          ]
+        },
+        "Haryana": {
+          "capital": "Chandigarh",
+          "major_cities": [
+            "Ambala",
+            "Bhiwani",
+            "Faridabad",
+            "Firozpur Jhirka",
+            "Gurugram",
+            "Hansi",
+            "Hisar",
+            "Jind",
+            "Kaithal",
+            "Karnal",
+            "Kurukshetra",
+            "Panipat",
+            "Pehowa",
+            "Rewari",
+            "Rohtak",
+            "Sirsa",
+            "Sonipat"
+          ]
+        },
+        "Himachal Pradesh": {
+          "capital": "Shimla",
+          "major_cities": [
+            "Bilaspur",
+            "Chamba",
+            "Dalhousie",
+            "Dharmshala",
+            "Hamirpur",
+            "Kangra",
+            "Kullu",
+            "Mandi",
+            "Nahan",
+            "Una"
+          ]
+        },
+        "Jammu and Kashmir": {
+          "capital": "Srinagar (summer), Jammu (winter)",
+          "major_cities": [
+            "Anantnag",
+            "Baramula",
+            "Doda",
+            "Gulmarg",
+            "Kathua",
+            "Punch",
+            "Rajouri",
+            "Udhampur"
+          ]
+        },
+        "Jharkhand": {
+          "capital": "Ranchi",
+          "major_cities": [
+            "Bokaro",
+            "Chaibasa",
+            "Deoghar",
+            "Dhanbad",
+            "Dumka",
+            "Giridih",
+            "Hazaribag",
+            "Jamshedpur",
+            "Jharia",
+            "Rajmahal",
+            "Saraikela"
+          ]
+        },
+        "Karnataka": {
+          "capital": "Bengaluru",
+          "major_cities": [
+            "Badami",
+            "Ballari",
+            "Belagavi",
+            "Bhadravati",
+            "Bidar",
+            "Chikkamagaluru",
+            "Chitradurga",
+            "Davangere",
+            "Halebid",
+            "Hassan",
+            "Hubballi-Dharwad",
+            "Kalaburagi",
+            "Kolar",
+            "Madikeri",
+            "Mandya",
+            "Mangaluru",
+            "Mysuru",
+            "Raichur",
+            "Shivamogga",
+            "Shravanabelagola",
+            "Shrirangapattana",
+            "Tumakuru",
+            "Vijayapura"
+          ]
+        },
+        "Kerala": {
+          "capital": "Thiruvananthapuram",
+          "major_cities": [
+            "Alappuzha",
+            "Vatakara",
+            "Idukki",
+            "Kannur",
+            "Kochi",
+            "Kollam",
+            "Kottayam",
+            "Kozhikode",
+            "Mattancheri",
+            "Palakkad",
+            "Thalassery",
+            "Thrissur"
+          ]
+        },
+        "Madhya Pradesh": {
+          "capital": "Bhopal",
+          "major_cities": [
+            "Balaghat",
+            "Betul",
+            "Bhind",
+            "Bhopal",
+            "Burhanpur",
+            "Chhindwara",
+            "Dhar",
+            "Gwalior",
+            "Indore",
+            "Itarsi",
+            "Jabalpur",
+            "Khajuraho",
+            "Khandwa",
+            "Khargone",
+            "Mandsaur",
+            "Morena",
+            "Rewa",
+            "Sagar",
+            "Satna",
+            "Shivpuri",
+            "Ujjain",
+            "Vidisha"
+          ]
+        },
+        "Maharashtra": {
+          "capital": "Mumbai",
+          "major_cities": [
+            "Ahmadnagar",
+            "Akola",
+            "Amravati",
+            "Aurangabad",
+            "Bhandara",
+            "Bhusawal",
+            "Bid",
+            "Buldhana",
+            "Chandrapur",
+            "Dhule",
+            "Jalgaon",
+            "Kalyan",
+            "Kolhapur",
+            "Nagpur",
+            "Nashik",
+            "Osmanabad",
+            "Pandharpur",
+            "Parbhani",
+            "Pune",
+            "Ratnagiri",
+            "Sangli",
+            "Satara",
+            "Solapur",
+            "Thane",
+            "Vasai-Virar",
+            "Wardha",
+            "Yavatmal"
+          ]
+        },
+        "Manipur": {
+          "capital": "Imphal"
+        },
+        "Meghalaya": {
+          "capital": "Shillong",
+          "major_cities": ["Cherrapunji"]
+        },
+        "Mizoram": {
+          "capital": "Aizawl",
+          "major_cities": ["Lunglei"]
+        },
+        "Nagaland": {
+          "capital": "Kohima",
+          "major_cities": ["Mon", "Phek", "Wokha", "Zunheboto"]
+        },
+        "Odisha": {
+          "capital": "Bhubaneshwar",
+          "major_cities": [
+            "Balangir",
+            "Baleshwar",
+            "Baripada",
+            "Brahmapur",
+            "Cuttack",
+            "Dhenkanal",
+            "Kendujhar",
+            "Konark",
+            "Koraput",
+            "Paradip",
+            "Phulabani",
+            "Puri",
+            "Sambalpur",
+            "Udayagiri"
+          ]
+        },
+        "Punjab": {
+          "capital": "Chandigarh",
+          "major_cities": [
+            "Amritsar",
+            "Batala",
+            "Faridkot",
+            "Firozpur",
+            "Gurdaspur",
+            "Hoshiarpur",
+            "Jalandhar",
+            "Kapurthala",
+            "Ludhiana",
+            "Patiala",
+            "Rupnagar",
+            "Sangrur"
+          ]
+        },
+        "Rajasthan": {
+          "capital": "Jaipur",
+          "major_cities": [
+            "Ajmer",
+            "Alwar",
+            "Bharatpur",
+            "Bhilwara",
+            "Bikaner",
+            "Chittaurgarh",
+            "Jaisalmer",
+            "Jodhpur",
+            "Kota",
+            "Pali",
+            "Pushkar",
+            "Sikar",
+            "Udaipur"
+          ]
+        },
+        "Sikkim": {
+          "capital": "Gangtok",
+          "major_cities": ["Gyalshing", "Lachung", "Mangan"]
+        },
+        "Tamil Nadu": {
+          "capital": "Chennai",
+          "major_cities": [
+            "Arcot",
+            "Chengalpattu",
+            "Chidambaram",
+            "Coimbatore",
+            "Cuddalore",
+            "Dharmapuri",
+            "Dindigul",
+            "Erode",
+            "Kanchipuram",
+            "Kanniyakumari",
+            "Kodaikanal",
+            "Kumbakonam",
+            "Madurai",
+            "Mamallapuram",
+            "Nagappattinam",
+            "Nagercoil",
+            "Palayamkottai",
+            "Pudukkottai",
+            "Rajapalayam",
+            "Ramanathapuram",
+            "Salem",
+            "Thanjavur",
+            "Tiruchchirappalli",
+            "Tirunelveli",
+            "Tiruppur",
+            "Thoothukudi",
+            "Udhagamandalam",
+            "Vellore"
+          ]
+        },
+        "Telangana": {
+          "capital": "Hyderabad",
+          "major_cities": [
+            "Karimnagar",
+            "Khammam",
+            "Mahbubnagar",
+            "Nizamabad",
+            "Sangareddi",
+            "Warangal"
+          ]
+        },
+        "Tripura": {
+          "capital": "Agartala"
+        },
+        "Uttar Pradesh": {
+          "capital": "Lucknow",
+          "major_cities": [
+            "Agra",
+            "Aligarh",
+            "Ayodhya",
+            "Bareilly",
+            "Faizabad",
+            "Fatehpur",
+            "Fatehpur Sikri",
+            "Ghaziabad",
+            "Gorakhpur",
+            "Jhansi",
+            "Kanpur",
+            "Mathura",
+            "Meerut",
+            "Moradabad",
+            "Prayagraj",
+            "Saharanpur",
+            "Varanasi"
+          ]
+        },
+        "Uttarakhand": {
+          "capital": "Dehra Dun",
+          "major_cities": ["Haridwar", "Nainital", "Pithoragarh", "Almora", "Mussoorie"]
+        },
+        "West Bengal": {
+          "capital": "Kolkata",
+          "major_cities": [
+            "Alipore",
+            "Asansol",
+            "Baharampur",
+            "Barrackpore",
+            "Bhatpara",
+            "Darjeeling",
+            "Durgapur",
+            "Haora",
+            "Hugli",
+            "Jalpaiguri",
+            "Kharagpur",
+            "Krishnanagar",
+            "Malda",
+            "Midnapore",
+            "Murshidabad",
+            "Nabadwip",
+            "Siliguri"
+          ]
+        }
+      }
+    }
+  }
+  
